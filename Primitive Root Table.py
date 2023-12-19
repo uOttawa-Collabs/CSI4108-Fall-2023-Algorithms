@@ -14,18 +14,18 @@ def main():
     if n == 2:
         return [1]
 
-    congruence_class = []
+    coprime_class = []
     for i in range(1, n):
         if gcd(i, n) == 1:
-            congruence_class.append(i)
-    print(f"Congruence class of modulo {n}: {congruence_class}")
+            coprime_class.append(i)
+    print(f"Coprime class of {n}: {coprime_class}")
 
     table = []
-    print("x\t" + "\t".join(f"x^{i}" for i in range(1, len(congruence_class) + 1)))
+    print("x\t" + "\t".join(f"x^{i}" for i in range(1, len(coprime_class) + 1)))
 
-    for element in congruence_class:
+    for element in coprime_class:
         row = []
-        for i in range(1, len(congruence_class) + 1):
+        for i in range(1, len(coprime_class) + 1):
             t = pow(element, i, n)
             row.append(t)
             if t == 1:
@@ -35,7 +35,7 @@ def main():
     for key, value in table:
         print(f"{key}\t" + "\t".join(str(e) for e in value))
 
-    print(f"Primitive roots: {[key for key, value in table if len(value) == len(congruence_class)]}")
+    print(f"Primitive roots: {[key for key, value in table if len(value) == len(coprime_class)]}")
 
 
 if __name__ == "__main__":

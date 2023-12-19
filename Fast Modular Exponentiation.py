@@ -14,7 +14,6 @@ def main():
 
     n = int(sys.argv[1])
     exponent = int(sys.argv[2])
-    modulo = int(sys.argv[3])
 
     print("------------------------------")
     n_tuple = tuple(n % m for m in m_list)
@@ -30,7 +29,7 @@ def main():
     for totient, tuple_exponent in zip(totients, tuple_exponents):
         print(f"{exponent} mod {totient} = {tuple_exponent}")
 
-    print(f"{n} ^ {exponent} mod {modulo}")
+    print(f"{n} ^ {exponent} mod {M_total}")
     print("-> (" + ", ".join(
         f"{t} ^ {tuple_exponent} mod {m}" for t, tuple_exponent, m in zip(n_tuple, tuple_exponents, m_list)) + ")")
     r_tuple = tuple(t ** tuple_exponent % m for t, tuple_exponent, m in zip(n_tuple, tuple_exponents, m_list))
